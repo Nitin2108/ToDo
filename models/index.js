@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 const db = {};
 (async function connectWithDb() {
-    const sequelize = new Sequelize('testdb', 'test', 'test', {
+    const sequelize = new Sequelize('testdb', process.env.dbuser, process.env.dbpasswd, {
         host: 'localhost',
         dialect: 'postgres'
     });
