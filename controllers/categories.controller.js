@@ -12,13 +12,13 @@ exports.create = (req, res) => {
         });
         return;
     }
-    // Create a Tutorial
+    // Create a category
     const category = {
         title: req.body.title,
         user:req.user
     };
 
-    // Save Tutorial in the database
+    // Save category in the database
     Category.create(category)
         .then(data => {
             res.send(data);
