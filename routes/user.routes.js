@@ -14,7 +14,7 @@ module.exports = (app, passport) => {
 //this url will be called once google with authenticate the user successfully
     router.get("/google/redirect", passport.authenticate("google"), async (req, res) => {
 
-        const accessToken = await jwt.sign({ email: req.user.email }, 'secret', { expiresIn: '1h' });
+        const accessToken = await jwt.sign({ email: req.user.email }, process.env.jwtSecret, { expiresIn: '1h' });
         res.send({ user: req.user.email, token: accessToken });
     });
     app.use('/auth', router);
